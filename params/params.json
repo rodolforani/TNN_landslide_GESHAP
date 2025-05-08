@@ -1,0 +1,49 @@
+{
+  "dataprepinargs": {
+    "covar": "Data/spatial_factors.npy",
+    "time": "Data/daily_rain.npy",
+    "response": "Data/su05_LS_DS.npy",
+    "normalize": true,
+    "testsize": 0.3,
+    "removezeros": false,
+    "inference": true 
+  },
+  "modelparam": {
+    "depth": 2,
+    "infeatures": 32,
+    "timewindow": 31,
+    "timefeature": 1,
+    "outfeatures": 1024,
+    "headsize": 4,
+    "kernel_initializer": "he_normal",
+    "bias_initializer": "he_normal",
+    "droupout": true,
+    "batchnormalization": true,
+    "dropoutratio": 0.3,
+    "mlpdroupoutratio": 0.3,
+    "lastactivation": "relu",
+    "middleactivation": "relu",
+    "lr": 9e-4,
+    "decay_steps": 40000,
+    "decay_rate": 0.95,
+    "weight_nolandslide": 1,
+    "weight_landslide": 1,
+    "mlpunits": [
+      128,
+      128
+    ],
+    "num_heads": 4,
+    "ff_dim": 8,
+    "constdepth": 8,
+    "constwidth": 32,
+    "n_classes": 1,
+    "trdropoutratio": 0.3,
+    "includeconst": true
+  },
+  "trainparam": {
+    "nepoch": 200,
+    "ckpt": "checkpoints/DS_daily_75.keras",
+    "batchsize": 32,
+    "valsplit": 0.3
+  }
+}
